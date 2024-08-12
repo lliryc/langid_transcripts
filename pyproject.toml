@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "gcloud-test"
+version = "0.1.0"
+description = ""
+authors = ["gardberg <lukasgardberg2@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fasttext = "^0.9.3"
+numpy = "<2.0.0"
+huggingface-hub = "^0.24.5"
+fastapi = {extras = ["standard"], version = "^0.112.0"}
+uvicorn = "^0.30.5"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
