@@ -18,4 +18,4 @@ COPY app.py .
 
 # USER nonroot:nonroot
 
-ENTRYPOINT ["fastapi", "run", "app.py", "--port", "8080"]
+ENTRYPOINT ["fastapi", "run", "app.py", "--port", "6776"]
