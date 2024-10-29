@@ -18,6 +18,8 @@ app = fastapi.FastAPI()
 
 class LangIdRequestModel(BaseModel):
     text: str = Field(default="هذا الولد خطيه قاعد يرسم وفرحان بس", description="The text to predict the language of.")
+    k: int = Field(default=1, description="Top k predictions to return.")
+    threshold: float = Field(default=0.8, description="Threshold for the probability of the predictions.")
 
 class LangIdResponseModel(BaseModel):
     predictions: Dict[str, float] = Field(description="Dictionary of language predictions and their probabilities.")
@@ -26,7 +28,7 @@ class LangIdResponseModel(BaseModel):
 @app.post("/predict_langid")
 def predict_langid(request: LangIdRequestModel):
     try:
-        langs, probs = model.predict(request.text)
+        langs, probs = model.predict(request.text, k=request.k, threshold=request.threshold)
         res = {}
         for lang, prob in zip(langs, probs):
             res[lang] = prob

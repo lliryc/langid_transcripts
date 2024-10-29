@@ -170,3 +170,5 @@ output/
 .DS_Store
 
 models--cis-lmu--glotlid
+
+smb_share/
